@@ -12,10 +12,8 @@ import numpy as np
 import os
 
 os.makedirs("charts", exist_ok=True)
-import matplotlib.font_manager as fm
-font_path = "/usr/share/fonts/truetype/droid/DroidSansFallbackFull.ttf"
-fm.fontManager.addfont(font_path)
-plt.rcParams["font.family"] = "Droid Sans Fallback"
+plt.rcParams["font.sans-serif"] = ["Droid Sans Fallback"] + plt.rcParams["font.sans-serif"]
+plt.rcParams["axes.unicode_minus"] = False
 
 # %% 图表1: 模型家族演化树 ——————————————————————————————————————
 fig, ax = plt.subplots(1, 1, figsize=(28, 18))
