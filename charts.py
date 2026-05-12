@@ -12,7 +12,9 @@ import numpy as np
 import os
 
 os.makedirs("charts", exist_ok=True)
-plt.rcParams["font.sans-serif"] = ["Droid Sans Fallback"] + plt.rcParams["font.sans-serif"]
+import matplotlib.font_manager as fm
+fm.fontManager.addfont("/usr/share/fonts/truetype/arphic-gbsn00lp/gbsn00lp.ttf")
+plt.rcParams["font.family"] = "AR PL SungtiL GB"
 plt.rcParams["axes.unicode_minus"] = False
 
 # %% 图表1: 模型家族演化树 ——————————————————————————————————————
@@ -509,7 +511,7 @@ for i in range(len(scenarios)):
         color = "white" if val >= 7 else "black"
         ax.text(j, i, str(val), ha="center", va="center", fontsize=8, fontweight="bold", color=color)
 
-ax.set_title("Scenario × Model Recommendation Heatmap\n(10 = best fit, ⬛ = top recommendation)",
+ax.set_title("Scenario × Model Recommendation Heatmap\n(10 = best fit, ■ = top recommendation)",
              fontsize=15, fontweight="bold", pad=15)
 fig.colorbar(im, ax=ax, shrink=0.8, label="Fit Score")
 
